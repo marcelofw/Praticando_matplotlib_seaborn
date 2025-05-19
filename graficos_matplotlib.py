@@ -62,11 +62,70 @@ import matplotlib.pyplot as plt
 # plt.stackplot(dias, dormir, comer, trabalhar, passear, colors = ['m', 'c', 'r', 'k', 'b'])
 # plt.show()
 
-fatias = [7, 2, 2, 13]
-atividades = ["dormir", "comer", "passear", "trabalhar"]
-cores = ["olive", "lime", "violet", "royalblue"]
-plt.pie(fatias, labels = atividades, colors = cores, startangle = 90, shadow = True, explode = (0, 0.2, 0, 0))
+# fatias = [7, 2, 2, 13]
+# atividades = ["dormir", "comer", "passear", "trabalhar"]
+# cores = ["olive", "lime", "violet", "royalblue"]
+# plt.pie(fatias, labels = atividades, colors = cores, startangle = 90, shadow = True, explode = (0, 0.2, 0, 0))
+# plt.show()
+
+from pylab import *
+# x = linspace(0, 5, 10)
+# y = x ** 2
+# fig = plt.figure()
+# axes = fig.add_axes([0.1, 0.1, 0.8, 0.8])
+# axes.plot(x, y, "r")
+# axes.set_xlabel("x")
+# axes.set_ylabel("y")
+# axes.set_title("Gráfico de Linha")
+# plt.show()
+
+# x = linspace(0, 5, 10)
+# y = x ** 2
+# fig = plt.figure()
+# axes1 = fig.add_axes([0.1, 0.1, 0.8, 0.8])
+# axes2 = fig.add_axes([0.2, 0.5, 0.4, 0.3])
+# axes1.plot(x, y, "r")
+# axes1.set_xlabel("x")
+# axes1.set_ylabel("y")
+# axes1.set_title("Figura Principal")
+# axes2.plot(y, x, "g")
+# axes2.set_xlabel("x")
+# axes2.set_ylabel("y")
+# axes2.set_title("Figura Secundária")
+# plt.show()
+
+x = linspace(0, 5, 10)
+y = x ** 2
+fig, axes = plt.subplots(nrows = 1, ncols = 3)
+for ax in axes:
+    ax.plot(x, y, "r")
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.set_title("Título")
+fig.tight_layout()
 plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
