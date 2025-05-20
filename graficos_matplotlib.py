@@ -94,17 +94,48 @@ from pylab import *
 # axes2.set_title("Figura Secundária")
 # plt.show()
 
-x = linspace(0, 5, 10)
-y = x ** 2
-fig, axes = plt.subplots(nrows = 1, ncols = 3)
-for ax in axes:
-    ax.plot(x, y, "r")
-    ax.set_xlabel("x")
-    ax.set_ylabel("y")
-    ax.set_title("Título")
-fig.tight_layout()
-plt.show()
+# x = linspace(0, 5, 10)
+# y = x ** 2
+# fig, axes = plt.subplots(nrows = 1, ncols = 3)
+# for ax in axes:
+#     ax.plot(x, y, "r")
+#     ax.set_xlabel("x")
+#     ax.set_ylabel("y")
+#     ax.set_title("Título")
+# fig.tight_layout()
+# plt.show()
 
+# x = linspace(0, 5, 10)
+# y = x ** 2
+# fig, axes = plt.subplots(1, 2, figsize = (10,4))
+# axes[0].plot(x, x**2, x, exp(x))
+# axes[0].set_title("Escala Padrão")
+# axes[1].plot(x, x**2, x, exp(x))
+# axes[1].set_yscale("log")
+# axes[1].set_title("Escala Logaritmica (y)")
+# plt.show()
+
+# x = linspace(0, 5, 10)
+# y = x ** 2
+# fig, axes = plt.subplots(1, 2, figsize = (10, 3))
+# axes[0].plot(x, x**2, x, x**3, lw = 2)
+# axes[0].grid(True)
+# axes[1].plot(x, x**2, x, x**3, lw = 2)
+# axes[1].grid(color = "b", alpha = 0.7, linestyle = "dashed", linewidth = 0.8)
+# plt.show()
+
+# xx = np.linspace(-0.75, 1., 100)
+# n = np.array([0, 1, 2, 3, 4, 5])
+# fig, axes = plt.subplots(1, 4, figsize = (12, 3))
+# axes[0].scatter(xx, xx + 0.25 * randn(len(xx)), color = "black")
+# axes[0].set_title("scatter")
+# axes[1].step(n, n**2, lw = 2, color = "blue")
+# axes[1].set_title("step")
+# axes[2].bar(n, n**2, align = "center", width = 0.5, alpha = 0.5, color = "magenta")
+# axes[2].set_title("bar")
+# axes[3].fill_between(xx, xx**2, xx**3, alpha = 0.5, color = "green")
+# axes[3].set_title("fill_between")
+# plt.show()
 
 
 
