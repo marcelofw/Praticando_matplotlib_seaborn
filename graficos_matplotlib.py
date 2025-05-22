@@ -137,14 +137,39 @@ from pylab import *
 # axes[3].set_title("fill_between")
 # plt.show()
 
+# n = np.random.randn(100000)
+# fig, axes = plt.subplots(1, 2, figsize = (12, 4))
+# axes[0].hist(n)
+# axes[0].set_title("Histograma Padrão")
+# axes[0].set_xlim((min(n), max(n)))
+# axes[1].hist(n, cumulative = True, bins = 50)
+# axes[1].set_title("Histograma Cumulativo")
+# axes[1].set_xlim((min(n), max(n)))
+# plt.show()
 
 
 
+from mpl_toolkits.mplot3d.axes3d import Axes3D
+alpha = 0.7
+phi_ext = 2 * np.pi * 0.5
 
+def ColorMap(phi_m, phi_p):
+    return ( + alpha - 2 * np.cos(phi_p)*cos(phi_m) - alpha * np.cos(phi_ext - 2*phi_p))
 
+phi_m = np.linspace(0, 2*np.pi, 100)
+phi_p = np.linspace(0, 2*np.pi, 100)
+X,Y = np.meshgrid(phi_p, phi_m)
+Z = ColorMap(X,Y).T
 
+fig = plt.figure(figsize = (14, 6))
+ax = fig.add_subplot(1, 2, 1, projection = "3d")
+p = ax.plot_surface(X, Y, Z, rstride = 4, cstride = 4, linewidth = 0)
 
+ax = fig.add_subplot(1, 2, 2, projection = "3d")
+p = ax.plot_surface(X, Y, Z, rstride = 1, cstride = 1, cmap = cm.coolwarm, linewidth = 0, antialiased = False)
 
+cb = fig.colorbar(p, shrink = 0.5)
+plt.show()
 
 
 
