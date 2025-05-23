@@ -1,6 +1,6 @@
 import matplotlib as mpl
 
-print(mpl.__version__)
+# print(mpl.__version__)
 
 import matplotlib.pyplot as plt
 
@@ -149,33 +149,64 @@ from pylab import *
 
 
 
-from mpl_toolkits.mplot3d.axes3d import Axes3D
-alpha = 0.7
-phi_ext = 2 * np.pi * 0.5
+# from mpl_toolkits.mplot3d.axes3d import Axes3D
+# alpha = 0.7
+# phi_ext = 2 * np.pi * 0.5
 
-def ColorMap(phi_m, phi_p):
-    return ( + alpha - 2 * np.cos(phi_p)*cos(phi_m) - alpha * np.cos(phi_ext - 2*phi_p))
+# def ColorMap(phi_m, phi_p):
+#     return ( + alpha - 2 * np.cos(phi_p)*cos(phi_m) - alpha * np.cos(phi_ext - 2*phi_p))
 
-phi_m = np.linspace(0, 2*np.pi, 100)
-phi_p = np.linspace(0, 2*np.pi, 100)
-X,Y = np.meshgrid(phi_p, phi_m)
-Z = ColorMap(X,Y).T
+# phi_m = np.linspace(0, 2*np.pi, 100)
+# phi_p = np.linspace(0, 2*np.pi, 100)
+# X,Y = np.meshgrid(phi_p, phi_m)
+# Z = ColorMap(X,Y).T
 
-fig = plt.figure(figsize = (14, 6))
-ax = fig.add_subplot(1, 2, 1, projection = "3d")
-p = ax.plot_surface(X, Y, Z, rstride = 4, cstride = 4, linewidth = 0)
+# fig = plt.figure(figsize = (14, 6))
+# ax = fig.add_subplot(1, 2, 1, projection = "3d")
+# p = ax.plot_surface(X, Y, Z, rstride = 4, cstride = 4, linewidth = 0)
 
-ax = fig.add_subplot(1, 2, 2, projection = "3d")
-p = ax.plot_surface(X, Y, Z, rstride = 1, cstride = 1, cmap = cm.coolwarm, linewidth = 0, antialiased = False)
+# ax = fig.add_subplot(1, 2, 2, projection = "3d")
+# p = ax.plot_surface(X, Y, Z, rstride = 1, cstride = 1, cmap = cm.coolwarm, linewidth = 0, antialiased = False)
 
-cb = fig.colorbar(p, shrink = 0.5)
-plt.show()
-
-
+# cb = fig.colorbar(p, shrink = 0.5)
+# plt.show()
 
 
 
+import random
+import numpy as np
+import pandas as pd
+import matplotlib as mat
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings("ignore")
+import seaborn as sea
 
+dados = sea.load_dataset("tips")
+# print(dados.head())
+# sea.jointplot(data = dados, x = "total_bill", y = "tip", kind = "reg")
+# plt.show()
+# sea.lmplot(data = dados, x = "total_bill", y = "tip", col = "smoker")
+# plt.show()
+df = pd.DataFrame()
+df["idade"] = random.sample(range(20, 100), 30)
+df["peso"] = random.sample(range(55, 150), 30)
+# print(df.shape)
+# print(df.head())
+
+# sea.lmplot(data = df, x = "idade", y = "peso", fit_reg = True)
+# sea.kdeplot(df.idade)
+# sea.kdeplot(df.peso)
+# plt.show()
+
+# plt.hist(df.idade, alpha = .3)
+# sea.rugplot(df.idade)
+# sea.boxplot(df.idade, color = "m")
+# sea.boxplot(df.peso, color = "y")
+# sea.violinplot(df.idade, color = "g")
+# sea.violinplot(df.peso, color = "cyan")
+# sea.clustermap(df)
+# plt.show()
 
 
 
