@@ -182,15 +182,15 @@ import warnings
 warnings.filterwarnings("ignore")
 import seaborn as sea
 
-dados = sea.load_dataset("tips")
+# dados = sea.load_dataset("tips")
 # print(dados.head())
 # sea.jointplot(data = dados, x = "total_bill", y = "tip", kind = "reg")
 # plt.show()
 # sea.lmplot(data = dados, x = "total_bill", y = "tip", col = "smoker")
 # plt.show()
-df = pd.DataFrame()
-df["idade"] = random.sample(range(20, 100), 30)
-df["peso"] = random.sample(range(55, 150), 30)
+# df = pd.DataFrame()
+# df["idade"] = random.sample(range(20, 100), 30)
+# df["peso"] = random.sample(range(55, 150), 30)
 # print(df.shape)
 # print(df.head())
 
@@ -210,19 +210,32 @@ df["peso"] = random.sample(range(55, 150), 30)
 
 
 
+np.random.seed(42)
+n = 1000
+pct_smokers = 0.2
 
+flag_fumante = np.random.rand(n) < pct_smokers
+idade = np.random.normal(40, 10, n)
+altura = np.random.normal(170, 10, n)
+peso = np.random.normal(70, 10, n)
 
+dados = pd.DataFrame({"altura": altura, "peso": peso, "flag_fumante": flag_fumante})
 
+dados["flag_fumante"] = dados["flag_fumante"].map({True: "Fumante", False: "Não Fumante"})
+# print(dados.shape)
+# print(dados.head())
 
+import seaborn as sns
+sns.set(style = "ticks")
 
+sns.lmplot(x = "altura", y = "peso", data = dados, hue = "flag_fumante", palette = ["tab:blue", "tab:orange"], height = 7)
+plt.xlabel("Altura (cm)")
+plt.ylabel("Peso (kg)")
+plt.title("Relação Entre Altura e Peso de Fumantes e Não Fumantes")
 
+sns.despine()
 
-
-
-
-
-
-
+plt.show()
 
 
 
